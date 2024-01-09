@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- 這是Goerli上教學用的永久註記應用的案例：https://goerli.etherscan.io/tx/0xe1cd52a3befd161054072eb9ed617b3a3e301ee30064e5ff6960a53cd320dd82 -->
+</head>
+<body>
+  <!-- web3.js 從1.4版到3.0.0版 皆可正常運行 -->
+  <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@3.0.0/dist/web3.min.js"></script>
+  <script src="webpage_Wallet.js"></script>
+
+  <div class=${css.box} id="app">
+    <h1>這是自行開發的網頁錢包 無需安裝小狐狸</h1>
+    <h2>這也是一款簡單的去中心化應用軟體 DApp的範例</h2><br>
+    <label for="fname1"> Mainnet主鏈最新區塊數:   </label>
+    <input type="text" id="latestBlocks_mainnet" name="blocks1" value="">
+    <button class="button1" style="background:#3630a3;color:white;" onclick=queryBlocks()>查詢最新區塊數</button><br>
+    <label for="fname2">Goerli測試鏈最新區塊數:</label>
+    <input type="text" id="latestBlocks_goerli" name="blocks3" value=""><br>
+    <label for="fname2">Sepolia測試鏈最新區塊數:</label>
+    <input type="text" id="latestBlocks_sepolia" name="blocks4" value=""><br>
+    <br><br>
+    <label for="fname">查詢某人的錢包地址:</label>
+    <input type="text" id="walletaddress" name="addrsss" value="" size="50">
+    <button class="queryBalance_button" style="background:#3630a3;color:white;" onclick=queryBalance()>查詢 區塊鏈上 Ether 餘額</button><br>
+    <label for="fname">Mainnet上ETH餘額:</label>
+    <input type="text" id="walletbalance" name="balance" value=""><br>
+    <!-- <label for="fname">testnet（Ropestan)上錢包ETH餘額:</label>
+    <input type="text" id="walletbalance2" name="balance2" value=""><br> -->
+    <label for="fname">testnet(Sepolia)上ETH餘額:</label>
+    <input type="text" id="walletbalance3" name="balance3" value=""><br>
+    <label for="fname">testnet(Sepolia)上此錢包E地址的Nonce值:</label>
+    <input type="text" id="nonce1" name="balance3" value=""><br><br><br>
+
+    <label for="fname">在Sepolia測試鏈上，發送ETH測試幣給接收者，接收者地址:</label>
+    <input type="text" id="receiverAddress" name="receiver" value="" size="60"> <br>
+    <label for="fname">請輸入要轉帳出去的金額:</label>
+    <input type="text" id="sendAmount" name="amount1" value=""><a> ETH</a><br>
+    <br>
+    <label for="fname">隨交易發送出去的附言(Data)(16進制):</label>
+    <input type="text" id="send_data" name="data1" value="" size="80"><a></a><br>將中文語句轉為16進位的線上網站：https://onlineutf8tools.com/convert-utf8-to-hexadecimal<br>
+    <br>
+    <label for="fname">發出交易需要用私鑰簽署授權：請匯入發送者的私鑰:</label>
+    <input type="text" id="senderPrivateKey" name="senderPk" value="" size="64"><br>
+    <br><button class="sendETH" style="background:#3630a3;color:white;" onclick=sendETH()>開始轉帳</button><br><br>
+    <label for="fname">發送成功後，產生的交易流水號:</label>
+    <input type="text" id="tx_hash" name="receiver" value="" size="67"><br>
+    <label for="fname">可從以下的區塊鏈瀏覽器查詢剛剛出塊的資訊:</label>
+    <input type="text" id="tx_hash_on_sepolia" name="block_explorer" value="" size="110"><br>
+
+    <br><br>
+    <button class="createAccount" style="background: darkcyan;color:white;" onclick=creatAccount()>創建新的錢包地址</button><br>
+    <label for="fname">生成的公鑰:</label>
+    <input type="text" id="newPublicKey" name="nPublick" value="" size="72"><br>
+    <label for="fname">生成的私鑰:</label>
+    <input type="text" id="newPrivateKey" name="nPrivatek" value="" size="72"><br>
+
+  </div>
+</body>
+</html>
